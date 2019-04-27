@@ -12,11 +12,11 @@
   <ion-list>
     <ion-card padding *ngFor="let item of items">
       <ion-row>
-         Ticket:{{item.ticket}}
+         Ticket:<b>{{item.ticket}}</b>
       </ion-row>
-         Entrada:{{item.entrada}} Saída:{{item.saida}}
+         Entrada:<b>{{item.entrada}}</b> » Saída:<b>{{item.saida}}</b>
       <ion-row>
-         Pagou:{{calcValue(item)}}
+         Pagou:<b>{{calcValue(item)}}</b>
       </ion-row>
     </ion-card>
   </ion-list>
