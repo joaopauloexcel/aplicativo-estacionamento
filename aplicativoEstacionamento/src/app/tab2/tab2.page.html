@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title >
+        <ion-row justify-content-center>
+            PAGAMENTOS
+        </ion-row>   
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+         <ion-label color="primary">Ticket:{{item.ticket}} » Pagou:{{item.valor}} </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

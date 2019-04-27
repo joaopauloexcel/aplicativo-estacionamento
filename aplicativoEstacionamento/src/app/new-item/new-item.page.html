@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title >
+        <ion-row justify-content-center>
+            Ticket: {{estacionamento.ticket}}
+        </ion-row>   
+      </ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content  padding>
+    <ion-item> 
+        <ion-label color="primary">Preço: 50 minutos por R$10,00.</ion-label>
+    </ion-item>       
+    <ion-item>
+        <ion-label position="floating">Horário de Entrada:</ion-label>
+        <ion-datetime name="entrada" [(ngModel)]="estacionamento.entrada" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Horário de Saída: </ion-label>
+        <ion-datetime name="saida" [(ngModel)]="estacionamento.saida" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>  
+    <ion-card>
+      <ion-row justify-content-center>
+        <ion-item>    
+          <ion-button (click)="calcTime()">Calcular</ion-button>
+        </ion-item>
+     </ion-row> 
+     <ion-row justify-content-center>  
+      <ion-item> 
+        <ion-label> R${{estacionamento.valor}}</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row justify-content-center>  
+      <ion-item>
+          <ion-button  [disabled]="estacionamento.valor===0" (click)="okPay(estacionamento)"  [routerLink]="['/tabs/confirmed']">Finalizar</ion-button>
+      </ion-item> 
+    </ion-row> 
+  </ion-card>
+</ion-content>
+  
