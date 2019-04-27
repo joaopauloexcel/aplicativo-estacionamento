@@ -10,16 +10,17 @@ export class EstacionamentoService {
   
   constructor() { }
 
-  okPayService(value){
-    this.receipts.push({
-      ticket: value.ticket, 
-      entrada: value.entrada,  
-      saida: value.saida,
-      valor:value.valor
-    });
-    }
+  okPayService(value)
+  {
+      this.receipts.push({
+        ticket: value.ticket, 
+        entrada: value.entrada,  
+        saida: value.saida
+      });
+  }
 
-    getPayService(){
+    getPayService()
+    {
       return this.receipts;
     }
 }

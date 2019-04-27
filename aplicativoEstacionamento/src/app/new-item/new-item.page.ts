@@ -10,6 +10,7 @@ import {Estacionamento} from '../estacionamento';
 })
 export class NewItemPage implements OnInit {
   estacionamento:Estacionamento;
+  valor: Number;
 
   constructor(private route: ActivatedRoute,
               private estService:EstacionamentoService) { }
@@ -21,7 +22,7 @@ export class NewItemPage implements OnInit {
        this.estacionamento.ticket = data.id;
      }
    );
-   this.estacionamento.valor=0.0;
+   this.valor=0.0;
    this.estacionamento.entrada='';
    this.estacionamento.saida='';
   }
@@ -49,9 +50,9 @@ export class NewItemPage implements OnInit {
             } 
           else
               result+=((horaSaida-horaEntrada-1)*60.00)+(60.00-minEntada+minSaida);                   
-      this.estacionamento.valor = (result/50.00*10.00); 
-      this.estacionamento.entrada = (horaEntrada + ":" + minEntada).toString();
-      this.estacionamento.saida = (horaSaida + ":" + minSaida).toString();;                                    
+      this.valor = Math.round(result/50.00*10.00); 
+      this.estacionamento.entrada = (horaEntrada + ":" + (minEntada<10?'0' + minEntada: minEntada)).toString();
+      this.estacionamento.saida = (horaSaida + ":" + (minSaida<10?'0' + minSaida: minSaida)).toString();;                                    
     }         
     else
        alert('Falta valores a serem definidos!');   

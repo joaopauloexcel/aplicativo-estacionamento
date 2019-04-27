@@ -31,12 +31,12 @@
      </ion-row> 
      <ion-row justify-content-center>  
       <ion-item> 
-        <ion-label> R${{estacionamento.valor}}</ion-label>
+        <ion-label> R${{valor}}</ion-label>
       </ion-item>
     </ion-row>
     <ion-row justify-content-center>  
       <ion-item>
-          <ion-button  [disabled]="estacionamento.valor===0" (click)="okPay(estacionamento)"  [routerLink]="['/tabs/confirmed']">Finalizar</ion-button>
+          <ion-button  [disabled]="valor===0" (click)="okPay(estacionamento)"  [routerLink]="['/tabs/confirmed']">Finalizar</ion-button>
       </ion-item> 
     </ion-row> 
   </ion-card>
