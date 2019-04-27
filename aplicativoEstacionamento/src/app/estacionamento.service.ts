@@ -6,7 +6,8 @@ import {Estacionamento}from './estacionamento';
 })
 export class EstacionamentoService {
   receipts: Array<Estacionamento>=[];  
-
+  ticket:string;
+  
   constructor() { }
 
   okPayService(value){

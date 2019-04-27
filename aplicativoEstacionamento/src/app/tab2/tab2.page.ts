@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {EstacionamentoService} from '../estacionamento.service';
-import {Estacionamento} from '../estacionamento';
 
 @Component({
   selector: 'app-tab2',
@@ -8,12 +7,12 @@ import {Estacionamento} from '../estacionamento';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  valor:Array<any>;
   items:Array<any>;
 constructor(private estService: EstacionamentoService){}
 
 ngOnInit(){
   this.items = this.estService.getPayService();
 }
-  
 
 }

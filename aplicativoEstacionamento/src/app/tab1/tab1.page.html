@@ -16,9 +16,9 @@
         <ion-row justify-content-center> 
             <ion-item style="text-align: center"> 
                 <ion-label color="primary" position="floating">Insira o seu Ticket aqui</ion-label>
-                <ion-input type="text" name="ticket" [(ngModel)]="ticket"></ion-input>
+                <ion-input type="text" name="ticket" [(ngModel)]="estService.ticket"></ion-input>
               </ion-item>
-              <ion-button padding [routerLink]="['/tabs/new-item', ticket]" [disabled]="ticket===''">Confirmar</ion-button>
+              <ion-button padding [routerLink]="['/tabs/new-item', estService.ticket]" [disabled]="estService.ticket===''">Confirmar</ion-button>
         </ion-row>
    </ion-grid>
 </ion-content>

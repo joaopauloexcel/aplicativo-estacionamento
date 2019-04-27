@@ -8,10 +8,16 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-         <ion-label color="primary">Ticket:{{item.ticket}} » Pagou:{{item.valor}} </ion-label>
-    </ion-item>
+    <ion-card padding *ngFor="let item of items">
+      <ion-row>
+         Ticket:{{item.ticket}}
+      </ion-row>
+         Entrada:{{item.entrada}} Saída:{{item.saida}}
+      <ion-row>
+         Pagou:{{item.valor}}
+      </ion-row>
+    </ion-card>
   </ion-list>
 </ion-content>
