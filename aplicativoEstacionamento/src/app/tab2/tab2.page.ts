@@ -17,11 +17,11 @@ ngOnInit(){
 
 calcValue(value)
  {
-    let horaEntrada = parseFloat(value.entrada.slice(0,2));
-    let horaSaida = parseFloat(value.saida.slice(0,2));
-    let minEntada = parseFloat(value.entrada.slice(3,5));
-    let minSaida = parseFloat(value.entrada.slice(3,5));
-    let result = 0.0;
+    var horaEntrada = parseFloat(value.entrada.slice(0,2));
+    var horaSaida = parseFloat(value.saida.slice(0,2));
+    var minEntada = parseFloat(value.entrada.slice(3,5));
+    var minSaida = parseFloat(value.entrada.slice(3,5));
+    var result = 0.0;
  
     if(horaEntrada>horaSaida)
             {   if(minEntada>minSaida)

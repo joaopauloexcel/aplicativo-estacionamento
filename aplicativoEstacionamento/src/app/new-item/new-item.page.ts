@@ -28,12 +28,12 @@ export class NewItemPage implements OnInit {
   }
 
   calcTime()
-  {
-    let horaEntrada = parseFloat(this.estacionamento.entrada.slice(11,13));
-    let horaSaida = parseFloat(this.estacionamento.saida.slice(11,13));
-    let minEntada =  parseFloat(this.estacionamento.entrada.slice(14,16));
-    let minSaida = parseFloat(this.estacionamento.saida.slice(14,16));
-    let result=0.0;
+  { this.valor=0.0;
+    var horaEntrada = parseInt(this.estacionamento.entrada.slice(11,13));
+    var horaSaida = parseFloat(this.estacionamento.saida.slice(11,13));
+    var minEntada =  parseFloat(this.estacionamento.entrada.slice(14,16));
+    var minSaida = parseFloat(this.estacionamento.saida.slice(14,16));
+    var result=0.0;
     if(this.estacionamento.entrada!=='' && this.estacionamento.saida!=='')
     {    if(horaEntrada>horaSaida)
           {   if(minEntada>minSaida)
@@ -50,17 +50,20 @@ export class NewItemPage implements OnInit {
             } 
           else
               result+=((horaSaida-horaEntrada-1)*60.00)+(60.00-minEntada+minSaida);                   
-      this.valor = Math.round(result/50.00*10.00); 
-      this.estacionamento.entrada = (horaEntrada + ":" + (minEntada<10?'0' + minEntada: minEntada)).toString();
-      this.estacionamento.saida = (horaSaida + ":" + (minSaida<10?'0' + minSaida: minSaida)).toString();;                                    
+      this.valor = Math.round(result/50.00*10.00);                                    
     }         
     else
        alert('Falta valores a serem definidos!');   
   }   
 
   okPay(value){
+    var horaEntrada = parseInt(this.estacionamento.entrada.slice(11,13));
+    var horaSaida = parseFloat(this.estacionamento.saida.slice(11,13));
+    var minEntada =  parseFloat(this.estacionamento.entrada.slice(14,16));
+    var minSaida = parseFloat(this.estacionamento.saida.slice(14,16));
+    this.estacionamento.entrada =(horaEntrada + ':' + (minEntada<10?'0'+minEntada:minEntada)).toString();
+    this.estacionamento.saida =(horaSaida + ':' + (minSaida<10?'0' + minSaida:minSaida)).toString();
       this.estService.okPayService(value);   
-      this.estacionamento = null;
       this.estService.ticket='';
   }
 }
