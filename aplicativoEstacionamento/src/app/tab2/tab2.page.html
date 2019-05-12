@@ -10,7 +10,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-card padding *ngFor="let item of items">
+    <ion-card padding *ngFor="let item of (items | async)">
       <ion-row>
          Ticket:<b>{{item.ticket}}</b>
       </ion-row>

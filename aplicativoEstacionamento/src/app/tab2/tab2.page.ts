@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import {EstacionamentoService} from '../estacionamento.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import {Estacionamento} from '../model/estacionamento';
+import { Observable } from 'rxjs';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +13,8 @@ import {EstacionamentoService} from '../estacionamento.service';
 })
 export class Tab2Page {
   valor:Array<any>;
-  items:Array<any>;
+  items: Observable<Estacionamento[]>;
+
 constructor(private estService: EstacionamentoService){}
 
 ngOnInit(){

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EstacionamentoService } from '../estacionamento.service';
-import {Estacionamento} from '../estacionamento';
+import {Estacionamento} from '../model/estacionamento';
 
 @Component({
   selector: 'app-new-item',
@@ -9,22 +9,24 @@ import {Estacionamento} from '../estacionamento';
   styleUrls: ['./new-item.page.scss'],
 })
 export class NewItemPage implements OnInit {
-  estacionamento:Estacionamento;
+  estacionamento:Estacionamento={
+    ticket:'',
+    entrada:'',
+    saida:''
+  };
+
   valor: Number;
 
   constructor(private route: ActivatedRoute,
               private estService:EstacionamentoService) { }
 
   ngOnInit() {
-   this.estacionamento = new Estacionamento();
    this.route.params.subscribe(
      data =>{
        this.estacionamento.ticket = data.id;
      }
    );
    this.valor=0.0;
-   this.estacionamento.entrada='';
-   this.estacionamento.saida='';
   }
 
   calcTime()
@@ -56,14 +58,14 @@ export class NewItemPage implements OnInit {
        alert('Falta valores a serem definidos!');   
   }   
 
-  okPay(value){
+  okPay(){
     var horaEntrada = parseInt(this.estacionamento.entrada.slice(11,13));
     var horaSaida = parseFloat(this.estacionamento.saida.slice(11,13));
     var minEntada =  parseFloat(this.estacionamento.entrada.slice(14,16));
     var minSaida = parseFloat(this.estacionamento.saida.slice(14,16));
     this.estacionamento.entrada =(horaEntrada + ':' + (minEntada<10?'0'+minEntada:minEntada)).toString();
-    this.estacionamento.saida =(horaSaida + ':' + (minSaida<10?'0' + minSaida:minSaida)).toString();
-      this.estService.okPayService(value);   
-      this.estService.ticket='';
+    this.estacionamento.saida =(horaSaida + ':' + (minSaida<10?'0' + minSaida:minSaida)).toString();  
+    this.estService.okPayService(this.estacionamento);
+    this.estService.ticket='';
   }
 }
